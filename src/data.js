@@ -1,4 +1,4 @@
-const mainHeader = document;
+const mainHeader = "src/img/banners/Mobile.jpg";
 
 const articles = [];
 
