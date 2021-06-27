@@ -7,12 +7,11 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Content from "../../data"
+import Content from "../../data";
 
 const useStyles = makeStyles({
-  div:{
-    marginTop:50,
-
+  div: {
+    marginTop: 30,
   },
   root: {
     marginBottom: 30,
@@ -23,35 +22,15 @@ const useStyles = makeStyles({
   media: {
     height: 200,
   },
+  title: {
+    fontSize: 20,
+  },
 });
 
 export default function LatestContent() {
   const classes = useStyles();
 
-  const [content, changcontent] = useState(Content)
-
-  // const [content, changcontent] = useState([
-  //   {
-  //     name: "learn of the world of gundam",
-  //     img: "/imageAssets/Gundam-Feature.jpg",
-  //     description: "Probably the most random thing you have ever seen!",
-  //   },
-  //   {
-  //     name: "chars counter attack",
-  //     description: "Hello World!",
-  //     img: "/imageAssets/Mobile.jpg",
-  //   },
-  //   {
-  //     name: "learn of the world of gundam",
-  //     img: "/imageAssets/Gundam-Feature.jpg",
-  //     description: "Probably the most random thing you have ever seen!",
-  //   },
-  //   {
-  //     name: "chars counter attack",
-  //     description: "Hello World!",
-  //     img: "/imageAssets/Mobile.jpg",
-  //   },
-  // ]);
+  const [content, changcontent] = useState(Content);
 
   const cards = content.map((item) => {
     return (
@@ -61,15 +40,19 @@ export default function LatestContent() {
             <CardMedia
               className={classes.media}
               image={item.img}
-              title={item.name}
+              // title={item.name}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                Lizard
+              <Typography
+                className={classes.title}
+                gutterBottom
+                variant="h5"
+                component="h2"
+              >
+                {item.name}
               </Typography>
               <Typography variant="body2" color="textSecondary" component="p">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
+                {item.description}
               </Typography>
             </CardContent>
           </CardActionArea>
@@ -83,5 +66,19 @@ export default function LatestContent() {
     );
   });
 
-  return <div className={classes.div}>{cards}</div>;
+  return (
+    <div className={classes.div}>
+      <h2 className="Latest_header" style={lastes_header}>
+        Latest Content
+      </h2>
+      {cards}
+    </div>
+  );
 }
+
+const lastes_header = {
+  textAlign: "left",
+  position: "relative",
+  left: "40px",
+  fontSize: 18,
+};

@@ -21,6 +21,9 @@ function Nav(props) {
         <Link to={"/latest"}>
           <Button>Latest</Button>
         </Link>
+        <Link to={"/community"}>
+          <Button>Community</Button>
+        </Link>
       </ButtonGroup>
     </div>
   );
